@@ -1,46 +1,53 @@
+
 import streamlit as st
-from datetime import date, time
+from datetime import date
 import pandas as pd
 import numpy as np
 import time as tm
 import pydeck as pdk
 import plotly.express as px
+from home import show_home
+from footer import show_footer
 
+# Set page config
 st.set_page_config(
-    page_title="National_Park_WebApp",
+    page_title="National Parks Data Visualizer",
     layout="wide",
     menu_items={
         'Get Help': 'https://docs.streamlit.io/',
         'Report a bug': 'https://www.gregoryreis.com',
-        'About': '# Welcome to HCI. Developed by Gregory Murad Reis'
+        'About': '# Welcome to the National Parks Data Visualizer. Developed by Gregory Murad Reis'
     }
 )
 
 # Header
-st.title("Title Here")
-st.header("Header Here")
+st.title("National Parks Data Visualizer")
+st.header("Explore the natural beauty preserved across the country")
 
-add_selectbox = st.sidebar.selectbox("Select a Feature",
-                                     ["Feature-1", "Feature-2", "Feature-3",
-                                      "Feature-4"])
+# Sidebar for navigation
+st.sidebar.title("Navigation")
+navigation = st.sidebar.radio("Choose a page:",
+                              ["Home", "Park Data", "Wildlife", "Visitor Statistics", "Park Conservation"])
 
-if add_selectbox == "Feature-1":
-    st.write("To be Constructed")
-    #Code for the feature needs to be in different file and imported to the app
+if navigation == "Park Data":
+    st.write("Park Data page is under construction.")
+    # Code for the Park Data page needs to be in different file and imported to the app
 
-elif add_selectbox == "Feature-2":
-    st.write("To be Constructed")
-    # Code for the feature needs to be in different file and imported to the app
+elif navigation == "Wildlife":
+    st.write("Wildlife page is under construction.")
+    # Code for the Wildlife page needs to be in different file and imported to the app
 
-elif add_selectbox == "Feature-3":
-    st.write("To be Constructed")
-    # Code for the feature needs to be in different file and imported to the app
+elif navigation == "Visitor Statistics":
+    st.write("Visitor Statistics page is under construction.")
+    # Code for the Visitor Statistics page needs to be in different file and imported to the app
 
-elif add_selectbox == "Feature-4":
-    st.write("To be Constructed")
-    # Code for the feature needs to be in different file and imported to the app
+elif navigation == "Park Conservation":
+    st.write("Park Conservation page is under construction.")
+    # Code for the Park Conservation page needs to be in different file and imported to the app
 
 else:
-    st.subheader("This is the Home Page")
-    #Home Page Content Here
+    # Home Page Content
+    show_home()
 
+# Footer
+show_footer()
